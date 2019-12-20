@@ -1,9 +1,9 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:test_app/pages/hero.dart';
 import 'package:test_app/pages/rohe.dart';
-import 'package:test_app/pages/test.dart';
+
 
 void main() => runApp(
       Begin(),
@@ -65,10 +65,12 @@ class _FirstPageState extends State<FirstPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Icon(Icons.directions_car, size: 50.0,),
+          title: Icon(
+            Icons.directions_car,
+            size: 50.0,
+          ),
           centerTitle: true,
-          bottom: TabBar(
-              tabs: [
+          bottom: TabBar(tabs: [
             Tab(
               child: Row(children: <Widget>[
                 Icon(Icons.airplanemode_active),
@@ -76,10 +78,8 @@ class _FirstPageState extends State<FirstPage> {
                   width: 15.0,
                 ),
                 Text("Vehicle"),
-
               ]),
             ),
-
             Tab(
               child: Row(
                 children: <Widget>[
@@ -101,21 +101,6 @@ class _FirstPageState extends State<FirstPage> {
               return CustomScrollView(
                 scrollDirection: Axis.vertical,
                 slivers: <Widget>[
-//                  SliverAppBar(
-//                    pinned: true,
-//                    elevation: 5.0,
-//                    expandedHeight: 150.0,
-//                    flexibleSpace: FlexibleSpaceBar(),
-//                    backgroundColor: Colors.red,
-//                    leading: Icon(
-//                      Icons.directions_car,
-//                      size: 40.0,
-//                    ),
-//                    title: Text(
-//                      "Car Models",
-//                      style: TextStyle(fontSize: 30.0, color: Colors.white),
-//                    ),
-//                  ),
                   showListTile(snapshot, 0, "model"),
                   showListTile(snapshot, 1, "model"),
                   showListTile(snapshot, 2, "model"),
@@ -124,7 +109,6 @@ class _FirstPageState extends State<FirstPage> {
               );
             },
           ),
-
           FutureBuilder(
             future: getFuture2(),
             builder: (context, snapshot) {
@@ -132,21 +116,6 @@ class _FirstPageState extends State<FirstPage> {
               return CustomScrollView(
                 scrollDirection: Axis.vertical,
                 slivers: <Widget>[
-//                  SliverAppBar(
-//                    pinned: true,
-//                    elevation: 5.0,
-//                    expandedHeight: 150.0,
-//                    flexibleSpace: FlexibleSpaceBar(),
-//                    backgroundColor: Colors.red,
-//                    leading: Icon(
-//                      Icons.directions_car,
-//                      size: 40.0,
-//                    ),
-//                    title: Text(
-//                      "Car Models",
-//                      style: TextStyle(fontSize: 30.0, color: Colors.white),
-//                    ),
-//                  ),
                   showListTile(snapshot, 0, "brand"),
                   showListTile(snapshot, 0, "brand"),
                   showListTile(snapshot, 0, "brand"),
@@ -160,13 +129,32 @@ class _FirstPageState extends State<FirstPage> {
                   showListTile(snapshot, 0, "brand"),
                   showListTile(snapshot, 0, "brand"),
                   showListTile(snapshot, 0, "brand"),
-
                 ],
               );
             },
           ),
-
         ]),
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          color: Colors.blue,
+          notchMargin: 3.0,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+//            child: Row(
+//              children: <Widget>[
+//                Icon(Icons.directions),
+//                Icon(Icons.directions),
+//                Icon(Icons.directions),
+//                Icon(Icons.directions),
+//              ],
+//            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          elevation: 5.0,
+          child: Icon(Icons.home),
+          onPressed: null),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     ));
   }

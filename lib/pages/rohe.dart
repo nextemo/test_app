@@ -11,8 +11,9 @@ class SecondPage extends StatelessWidget {
             floating: true,
             flexibleSpace: FlexibleSpaceBar(),
             expandedHeight: 200.0,
-            title: Hero(tag: "Heroein",
-                child: Icon(Icons.music_note, size: 100.5,),
+            title: Hero(
+              tag: "Heroein",
+                child: Icon(Icons.music_note, size: 55.5,),
             ),
             centerTitle: true,
           )
