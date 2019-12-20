@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:test_app/pages/comment.dart';
 import 'package:test_app/pages/rohe.dart';
 
 
@@ -135,26 +136,29 @@ class _FirstPageState extends State<FirstPage> {
           ),
         ]),
         bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
+//          shape: CircularNotchedRectangle(),
           color: Colors.blue,
-          notchMargin: 3.0,
+//          notchMargin: 3.0,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-//            child: Row(
-//              children: <Widget>[
-//                Icon(Icons.directions),
-//                Icon(Icons.directions),
-//                Icon(Icons.directions),
-//                Icon(Icons.directions),
-//              ],
-//            ),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.account_circle),
+                SizedBox(width: 5.0,),
+                Text("by Jhoni Iverson")
+              ],
+            ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: Colors.red,
           elevation: 5.0,
-          child: Icon(Icons.home),
-          onPressed: null),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          icon: Icon(Icons.comment),
+          label: Text("Feedback"),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> CommentNow()));
+          }),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       ),
     ));
   }
