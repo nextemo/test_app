@@ -59,6 +59,7 @@ class _FirstPageState extends State<FirstPage> {
     ]));
   }
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -71,7 +72,8 @@ class _FirstPageState extends State<FirstPage> {
             size: 50.0,
           ),
           centerTitle: true,
-          bottom: TabBar(tabs: [
+          bottom: TabBar(
+            tabs: [
             Tab(
               child: Row(children: <Widget>[
                 Icon(Icons.airplanemode_active),
